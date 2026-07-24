@@ -3,7 +3,7 @@ const path = require('path');
 const https = require('https');
 
 const rootDir = __dirname;
-const domain = 'https://optipro.com.tr/';
+const domain = './';
 
 // Set of files to download to avoid duplicates
 const toDownload = new Set();

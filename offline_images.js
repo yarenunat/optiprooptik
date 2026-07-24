@@ -13,7 +13,7 @@ function processUrls(dir) {
             let content = fs.readFileSync(p, 'latin1');
             let modified = false;
 
-            // Replace all occurrences of ./ and ./ with ./
+            // Replace all occurrences of ./ with ./
             // Because we have base href="../" in subdirectories, ./ will resolve perfectly to the root directory
             if (content.includes('./')) {
                 content = content.replace(/https:\/\/optipro\.com\.tr\//g, './');

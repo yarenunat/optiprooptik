@@ -1,3 +1,5 @@
 node_modules/
 site_backup/
 .env
+
+.vercel
