@@ -1146,6 +1146,7 @@
 
 
 
+
 <style id="mobile-layout-fixes">
 /* GLOBAL MOBILE FIXES */
 html, body {
@@ -1189,15 +1190,18 @@ html, body {
   }
 
   /* --- POPUP FIXES --- */
-  
-  /* Fix huge inline style width (864px) causing horizontal scroll on mobile */
   .popup-content img {
     max-width: 100% !important;
+    width: 100% !important;
     height: auto !important;
   }
   .popup-wrapper {
     max-width: 90vw !important;
     margin: 0 auto !important;
+  }
+  .popup-container {
+    width: 90vw !important;
+    max-width: 90vw !important;
   }
   .popup-close {
     right: 5px !important;
@@ -1205,19 +1209,38 @@ html, body {
     z-index: 9999 !important;
   }
 
-  /* Fix Popup Checkbox Overlap */
+  /* THIS IS THE KEY FIX: The theme sets .popup-dont-show to position:absolute
+     which causes it to overlap the button. We must override that. */
+  .module-popup-1160 .popup-footer,
   .popup-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 15px !important;
+    gap: 12px !important;
     padding: 10px !important;
+    position: relative !important;
   }
+  .module-popup-1160 .popup-dont-show,
   .popup-dont-show {
-    margin-top: 5px !important;
+    position: static !important;
+    position: relative !important;
+    inset-inline-end: unset !important;
+    right: unset !important;
+    left: unset !important;
+    top: unset !important;
+    bottom: unset !important;
+    margin-top: 8px !important;
     width: 100% !important;
     text-align: center !important;
+    justify-content: center !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .module-popup-1160 .popup-buttons + .popup-dont-show,
+  .popup-buttons + .popup-dont-show {
+    margin-top: 8px !important;
   }
   .popup-buttons {
     width: 100% !important;
@@ -1226,16 +1249,17 @@ html, body {
   .btn-popup-1 {
     width: 100% !important;
     white-space: normal !important;
+    display: block !important;
+    padding: 10px 15px !important;
   }
 
-  /* Fix Sidebar Menu Bullet Points and Overlaps */
-  .mobile-menu-container ul, .mobile-menu-container li, .dropdown-menu ul, .dropdown-menu li {
+  /* Fix Sidebar Menu */
+  .mobile-menu-container ul, .mobile-menu-container li,
+  .dropdown-menu ul, .dropdown-menu li {
     list-style: none !important;
     margin: 0;
     padding: 0;
   }
-
-  /* Fix accordion menu expanding and overlapping elements (often missing position relative or height auto) */
   .accordion-menu-item .collapse, .accordion-menu-item .dropdown-menu {
     position: relative !important;
     height: auto !important;
@@ -1250,7 +1274,7 @@ html, body {
     z-index: 9999 !important;
   }
   
-  /* Fix Marquee / Text overlap (Ticker) */
+  /* Fix Ticker */
   .module-ticker {
     overflow: hidden !important;
     white-space: nowrap !important;
