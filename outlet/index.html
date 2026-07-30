@@ -1113,8 +1113,14 @@
 <style>.icons-menu-228, .grid-module-footer-6-2-1 { display: none !important; }</style>
 
 
+
 <style id="mobile-layout-fixes">
-/* MOBILE FIXES */
+/* GLOBAL MOBILE FIXES */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
 @media (max-width: 768px) {
   body {
     padding-bottom: 80px !important;
@@ -1150,19 +1156,44 @@
     line-height: 1.2 !important;
   }
 
-  /* --- NEW FIXES --- */
+  /* --- POPUP FIXES --- */
+  
+  /* Fix huge inline style width (864px) causing horizontal scroll on mobile */
+  .popup-content img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .popup-wrapper {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+  }
+  .popup-close {
+    right: 5px !important;
+    top: 5px !important;
+    z-index: 9999 !important;
+  }
 
   /* Fix Popup Checkbox Overlap */
   .popup-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 15px !important;
+    padding: 10px !important;
   }
   .popup-dont-show {
-    margin-top: 10px !important;
+    margin-top: 5px !important;
     width: 100% !important;
     text-align: center !important;
+  }
+  .popup-buttons {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .btn-popup-1 {
+    width: 100% !important;
+    white-space: normal !important;
   }
 
   /* Fix Sidebar Menu Bullet Points and Overlaps */
