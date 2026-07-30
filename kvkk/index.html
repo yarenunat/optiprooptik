@@ -1113,6 +1113,7 @@ OptiPro olarak, kişisel verilerinizin korunmasına büyük önem veriyoruz. 669
 
 <style>.icons-menu-228, .grid-module-footer-6-2-1 { display: none !important; }</style>
 
+
 <style id="mobile-layout-fixes">
 /* MOBILE FIXES */
 @media (max-width: 768px) {
@@ -1148,6 +1149,49 @@ OptiPro olarak, kişisel verilerinizin korunmasına büyük önem veriyoruz. 669
     height: auto !important;
     padding: 8px 5px !important;
     line-height: 1.2 !important;
+  }
+
+  /* --- NEW FIXES --- */
+
+  /* Fix Popup Checkbox Overlap */
+  .popup-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+  .popup-dont-show {
+    margin-top: 10px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Fix Sidebar Menu Bullet Points and Overlaps */
+  .mobile-menu-container ul, .mobile-menu-container li, .dropdown-menu ul, .dropdown-menu li {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Fix accordion menu expanding and overlapping elements (often missing position relative or height auto) */
+  .accordion-menu-item .collapse, .accordion-menu-item .dropdown-menu {
+    position: relative !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+
+  /* Fix Search Dropdown Overlap */
+  .desktop-search-wrapper.mini-search .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+  }
+  
+  /* Fix Marquee / Text overlap (Ticker) */
+  .module-ticker {
+    overflow: hidden !important;
+    white-space: nowrap !important;
   }
 }
 </style>
